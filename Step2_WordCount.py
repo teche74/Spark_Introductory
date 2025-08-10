@@ -26,3 +26,41 @@ for word, count in word_counts.collect():
 
 
 sc.stop()
+
+
+
+# if data is custom created 
+
+from pyspark import SparkConf , SparkContext
+
+
+conf = SparkConf().setMaster('local').setAppName('WordCount')
+
+sc = SparkContext(conf = conf)
+
+
+data = [
+    "Hello world",
+    "Hello Spark",
+    "Hello PySpark world",
+    "Spark makes big data easy",
+    "Big data means big fun"
+]
+
+
+
+rdd = sc.parallelize(data)
+
+word_pair = rdd.flatMap(lambda lines : lines.split())
+
+word_pairs = word_pair.map( lambda word : (word,1)) 
+
+word_counts = word_pairs.reduceByKey(lambda a,b : a+b)
+
+
+for word, count in word_counts.collect():
+  print({f"{word} : {count}"})
+
+
+
+sc.stop()
