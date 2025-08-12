@@ -44,3 +44,22 @@
 - 'Executors' job is to perform task, store and retrive data, return result to Driver.
 
 <img src="https://github.com/teche74/Spark_Introductory/blob/main/IMAGES/SparkDistributedComponents.png?raw=true" alt="Pyspark_terminal_default_context" width="700" height="400">
+
+
+# DATA READ
+
+- There are 2 ways to get data in Spark : 
+  - `DATA FILE` : To add data stored in a file we use function provide by SparkContext called `.textFile()`
+    <br>
+    <img src="https://github.com/teche74/Spark_Introductory/blob/main/IMAGES/SparkTextFile.png?raw=true" alt="Pyspark_terminal_default_context" width="700" height="400">
+  - `CUSTOM DATA` : to create data for learning purpose or in standalone environment. `Note`: this method is not used in production and only used for learning purpose.
+    <br>
+    <img src="https://github.com/teche74/Spark_Introductory/blob/main/IMAGES/SparkParallelize.png?raw=true" alt="Pyspark_terminal_default_context" width="700" height="400">
+
+
+# Spark RDD's (Resilient Distributed Datasets)
+
+- It is a special data structure provided by Spark Core API to handle data and distributed across multiple nodes and perform parallel operation while providing user a unified apperance.
+- It is immutable to ensure data integrity, fault tolerance.
+- It itself internally distribute data, this will minimizes overhead and will do this effeciently.
+<img src="https://github.com/teche74/Spark_Introductory/blob/main/IMAGES/SparkRDDBehind.png?raw=true" alt="Pyspark_terminal_default_context" width="900" height="400">
